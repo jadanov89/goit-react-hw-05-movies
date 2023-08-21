@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastByMovieId } from '../../Services/GetMovies';
-import { ActorPicture, CastWrapper, ActorInfoWrapper } from './Cast.styled';
+import { ActorPicture, CastWrapper, ActorInfoWrapper, NoCast } from './Cast.styled';
 import notFound from '../../images/not-found.png';
 
 const Cast = () => {
@@ -13,13 +13,14 @@ const Cast = () => {
     );
   }, [movieId]);
 
-  if (!castActors) {
-    return null;
-  }
-
   return (
     <CastWrapper>
-      {castActors.map(castActor => {
+      {castActors && castActors.length === 0 && (
+        <NoCast>
+          <p>Sorry we don't have any reviews for this movie</p>
+        </NoCast>
+      )}
+      {castActors && castActors.map(castActor => {
         return (
           <ActorInfoWrapper key={castActor.credit_id}>
             <ActorPicture

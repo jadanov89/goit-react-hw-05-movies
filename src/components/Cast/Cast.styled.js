@@ -23,3 +23,10 @@ export const ActorInfoWrapper = styled.div`
   text-align: center;
   margin-right: 5px;
 `;
+
+export const NoCast= styled.div`
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 20px;
+  color: orangere;
+`;

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { Home } from '../pages/Home/Home';
 import { SharedLayout } from './SharedLayout/SharedLayout.jsx';
@@ -10,8 +10,8 @@ const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <Router>
-      <Routes>
+    <Routes>
+      <Route>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
@@ -21,7 +21,7 @@ export const App = () => {
           </Route>
         </Route>
         <Route path="*" element={<SharedLayout />} />
-      </Routes>
-    </Router>
+      </Route>
+    </Routes>
   );
 };
